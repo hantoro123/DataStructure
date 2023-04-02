@@ -54,5 +54,7 @@ int main(){
     else
         printf("not equal\n");
 
+    printf("[----- [한상준] [2017018024] -----]");
     return 0;
+  
 }

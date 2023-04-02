@@ -45,4 +45,6 @@ void main(){
     printf("plist[4]           =%p\n", plist[4]);
 
     free(plist[0]); //malloc을 free 해준다.
+
+    printf("[----- [한상준] [2017018024] -----]");
 }

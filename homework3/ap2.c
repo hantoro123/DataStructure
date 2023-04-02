@@ -26,4 +26,6 @@ void main(){
     printf("&list[4] \t= %p\n", &list[4]);
 
     free(plist[0]); // malloc을 free해준다.
+
+    printf("[----- [한상준] [2017018024] -----]");
 }

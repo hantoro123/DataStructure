@@ -47,6 +47,8 @@ void main(void){
     answer = sum3(MAX_SIZE, input);
     // sum3에서 MAX_SIZE, input를 넣어 나온 총 합의 값을 float형태로 출력
     printf("The sum is: %f\n\n", answer);
+
+    printf("[----- [한상준] [2017018024] -----]");
 }
 
 // list[]는 call by reference n은 call by value로 접근
