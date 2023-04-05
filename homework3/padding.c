@@ -1,24 +1,24 @@
 #include <stdio.h>
 
 struct student {
-    // °¢ ¼±¾ğµÈ º¯¼öµéÀº »çÀÌÁî´Â
+    // ê° ì„ ì–¸ëœ ë³€ìˆ˜ë“¤ì€ ì‚¬ì´ì¦ˆëŠ”
     char lastName[13]; // 13bytes
     int stduentID; // 4bytes
     short grade; // 2bytes
 };
 
 int main(){
-    // ±¸Á¶Ã¼ÀÇ Å¸ÀÔÀÌ ÁöÁ¤µÇ¾î ÀÖÁö ¾Ê¾Æ struct¸¦ »ç¿ëÇÏ¿© ¼±¾ğ
+    // êµ¬ì¡°ì²´ì˜ íƒ€ì…ì´ ì§€ì •ë˜ì–´ ìˆì§€ ì•Šì•„ structë¥¼ ì‚¬ìš©í•˜ì—¬ ì„ ì–¸
     struct student pst;
 
-    // struct student ÀÇ °æ¿ì ¿ø·¡´Â 19bytesÀÇ »çÀÌÁî°¡ Ãâ·ÁµÇ¾î¾ß ÇÏ´Âµ¥
-    // padding¿¡ ÀÇÇØ¼­ lastName[13]ÀÌ 13+3(ºó°ø°£) = 16bytes
-    // int´Â 4byte±×´ë·Î shortÀÇ °æ¿ì 2+2(ºó°ø°£) = 4bytes·Î ÃÑ 24bytes°¡ Ãâ·ÂµÊ
+    // struct student ì˜ ê²½ìš° ì›ë˜ëŠ” 19bytesì˜ ì‚¬ì´ì¦ˆê°€ ì¶œë ¤ë˜ì–´ì•¼ í•˜ëŠ”ë°
+    // paddingì— ì˜í•´ì„œ lastName[13]ì´ 13+3(ë¹ˆê³µê°„) = 16bytes
+    // intëŠ” 4byteê·¸ëŒ€ë¡œ shortì˜ ê²½ìš° 2+2(ë¹ˆê³µê°„) = 4bytesë¡œ ì´ 24bytesê°€ ì¶œë ¥ë¨
     printf("size of student = %ld\n", sizeof(struct student));
     printf("size of int     = %ld\n", sizeof(int));
     printf("size of short   = %ld\n", sizeof(short));
 
-    printf("[----- [ÇÑ»óÁØ] [2017018024] -----]");
+    printf("[----- [í•œìƒì¤€] [2017018024] -----]");
 
     return 0;
 }
