@@ -4,7 +4,7 @@
 void print_matrix(int row_size, int column_size, int** matrix);
 void addtion_matrix(int row_size, int column_size, int** matrixA, int** matrixB);
 void subtraction_matrix(int row_size, int column_size, int** matrixA, int** matrixB);
-// void traspose_matrix(int row_size, int column_size, int **matrix);
+void traspose_matrix(int row_size, int column_size, int **matrix);
 // void multiply_matrix(int** matrixA, int** matrixB);
 
 
@@ -70,14 +70,16 @@ int main(){
         printf("1. Print Matrix\n");
         printf("2. Add Matrix\n");
         printf("3. Subtract Matrix\n");
-        printf("4.\n");
+        printf("4. Transpose Matrix\n");
         printf("5.\n");
         printf("0. 종료 \n");
         scanf("%d", &number);
         switch (number)
         {
         case 1:
+            printf("A 행렬 \n");
             print_matrix(row_size_A, column_size_A, matrixA);
+            printf("B 행렬 \n");
             print_matrix(row_size_B, column_size_B, matrixB);
             break;
         case 2:
@@ -86,7 +88,16 @@ int main(){
         case 3:
             subtraction_matrix(row_size_A, column_size_A, matrixA, matrixB);
             break;
-        
+        case 4:
+            printf("A 행렬의 전치행렬 \n");
+            traspose_matrix(row_size_A, column_size_A, matrixA);
+            printf("B 행렬의 전치행렬 \n");
+            traspose_matrix(row_size_B, column_size_B, matrixB);
+            break;
+        case 5:
+            
+            break;
+            
         default:
             break;
         }
@@ -144,7 +155,7 @@ void subtraction_matrix(int row_size, int column_size, int** matrixA, int** matr
 
     // A 행렬의 column_size만큼 동적 메모리 할당하는 부분
     for (int i = 0; i < row_size; i++){
-        matrix[i] = (int*)malloc(sizeof(int) * column_size);
+        matrix[i] = (int *)malloc(sizeof(int) * column_size);
     }
 
     for (int row = 0; row < row_size; row++){
@@ -159,4 +170,23 @@ void subtraction_matrix(int row_size, int column_size, int** matrixA, int** matr
         free(matrix[j]);
     free(matrix);
 
+}
+
+void traspose_matrix(int row_size, int column_size, int **matrix){
+    int **trasmatrix = (int **)malloc(sizeof(int *) * column_size);
+
+    for (int i = 0; i < row_size; i++){
+        trasmatrix[i] = (int *)malloc(sizeof(int) * row_size);
+    }
+
+    for (int row = 0; row < row_size; row++){
+        for (int col = 0; col < column_size; col++)
+            trasmatrix[col][row] = matrix[row][col];
+    }
+
+    print_matrix(column_size, row_size, trasmatrix);
+
+    for (int j = 0; j < column_size; j++)
+        free(matrix[j]);
+    free(matrix);
 }
