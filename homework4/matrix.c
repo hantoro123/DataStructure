@@ -128,7 +128,10 @@ int main(){
             printf("\nA 행렬 * B 행렬\n");
             multiply_matrix(row_size_A, column_size_A, row_size_B, column_size_B, matrixA, matrixB);
             break;
-            
+        case 0:
+            printf("\n종료합니다.\n");
+            break; 
+
         default:
             printf("\n없는 동작입니다.\n");
             break;
