@@ -5,7 +5,7 @@ void print_matrix(int row_size, int column_size, int** matrix);
 void addtion_matrix(int row_size, int column_size, int** matrixA, int** matrixB);
 void subtraction_matrix(int row_size, int column_size, int** matrixA, int** matrixB);
 void traspose_matrix(int row_size, int column_size, int **matrix);
-// void multiply_matrix(int** matrixA, int** matrixB);
+void multiply_matrix(int row_sizeA, int column_sizeA, int row_sizeB, int column_sizeB, int** matrixA, int** matrixB);
 
 
 int main(){
@@ -71,7 +71,7 @@ int main(){
         printf("2. Add Matrix\n");
         printf("3. Subtract Matrix\n");
         printf("4. Transpose Matrix\n");
-        printf("5.\n");
+        printf("5. Multiply Matrix\n");
         printf("0. 종료 \n");
         scanf("%d", &number);
         switch (number)
@@ -95,7 +95,7 @@ int main(){
             traspose_matrix(row_size_B, column_size_B, matrixB);
             break;
         case 5:
-            
+            multiply_matrix(row_size_A, column_size_A, row_size_B, column_size_B, matrixA, matrixB);
             break;
             
         default:
@@ -187,6 +187,33 @@ void traspose_matrix(int row_size, int column_size, int **matrix){
     print_matrix(column_size, row_size, trasmatrix);
 
     for (int j = 0; j < column_size; j++)
+        free(trasmatrix[j]);
+    free(trasmatrix);
+}
+
+void multiply_matrix(int row_sizeA, int column_sizeA, int row_sizeB, int column_sizeB, int** matrixA, int** matrixB){
+    int **matrix = (int **)malloc(sizeof(int *) * row_sizeA);
+
+    for (int i = 0; i < row_sizeA; i++){
+        matrix[i] = (int *)malloc(sizeof(int) * column_sizeB);
+    }
+
+
+    for (int row = 0; row < row_sizeA; row++){
+        for (int col = 0; col < column_sizeB; col++){
+            matrix[row][col] = 0;
+            printf("%d", matrix[row][col]);
+            for (int same = 0; same < column_sizeA; same++){
+                matrix[row][col] += matrixA[row][same]*matrixB[same][col];
+                // printf("%d", matrix[row][col]);
+            }
+            
+        }
+    }
+
+    print_matrix(row_sizeA, column_sizeB, matrix);
+
+    for(int j = 0; j < column_sizeB; j++)
         free(matrix[j]);
     free(matrix);
 }
